@@ -1,4 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
+
+const INSIGHT_POOL = [
+  { icon: "fas fa-fire", text: 'Luna Nova\'s "Midnight Dreams" is trending on TikTok — 340% increase in saves this week.' },
+  { icon: "fas fa-clock", text: "Optimal release window for Alex Chen: Tuesday 3–5 PM EST based on listener patterns." },
+  { icon: "fas fa-globe", text: "Luna Nova fanbase surging in Berlin and Amsterdam — recommend a European tour push." },
+  { icon: "fas fa-chart-line", text: "Avg. stream duration up 22% — listeners are completing tracks; prioritise playlist pitching." },
+  { icon: "fas fa-dollar-sign", text: "Sync licensing revenue is 18% of total — explore more TV/ad placements for passive income." },
+  { icon: "fas fa-bullseye", text: "Instagram Reels are outperforming Stories 4:1 for campaign ROI across all artists." },
+  { icon: "fas fa-handshake", text: "Collaborations with mid-tier influencers (50K–200K) yielding 3× better CPM than macro." },
+  { icon: "fas fa-music", text: "Friday releases consistently outperform other days by 27% for first-week streams." },
+];
 
 const activities = [
   { icon: "fas fa-upload", text: "<strong>New track uploaded</strong> by Luna Nova", time: "2 hours ago" },
@@ -13,6 +24,29 @@ const events = [
 ];
 
 export default function DashboardSection() {
+  const [insights, setInsights] = useState([
+    INSIGHT_POOL[0], INSIGHT_POOL[1], INSIGHT_POOL[2],
+  ]);
+  const [generating, setGenerating] = useState(false);
+  const [shareMsg, setShareMsg] = useState("");
+
+  const generateInsights = () => {
+    setGenerating(true);
+    setTimeout(() => {
+      const shuffled = [...INSIGHT_POOL].sort(() => Math.random() - 0.5).slice(0, 4);
+      setInsights(shuffled);
+      setGenerating(false);
+    }, 1200);
+  };
+
+  const shareReport = () => {
+    const text = "LabelFlow Report\n" + insights.map(i => "• " + i.text).join("\n");
+    navigator.clipboard.writeText(text).then(() => {
+      setShareMsg("Report copied to clipboard!");
+      setTimeout(() => setShareMsg(""), 3000);
+    });
+  };
+
   return (
     <section id="dashboard" className="content-section active">
       <div className="section-header">
@@ -21,10 +55,18 @@ export default function DashboardSection() {
           <p>Overview of your label performance</p>
         </div>
         <div className="header-actions-group">
-          <button className="btn-secondary">Share Report</button>
-          <button className="btn-primary">Generate Insights</button>
+          <button className="btn-secondary" onClick={shareReport}><i className="fas fa-share"></i> Share Report</button>
+          <button className="btn-primary" onClick={generateInsights} disabled={generating}>
+            <i className={`fas ${generating ? "fa-spinner fa-spin" : "fa-lightbulb"}`}></i>{" "}
+            {generating ? "Generating…" : "Generate Insights"}
+          </button>
         </div>
       </div>
+      {shareMsg && (
+        <div style={{ background: "var(--success, #4caf50)", color: "#fff", padding: "0.6rem 1rem", borderRadius: "8px", marginBottom: "1rem", fontWeight: 600 }}>
+          <i className="fas fa-check"></i> {shareMsg}
+        </div>
+      )}
       <div className="stats-grid">
         <div className="stat-card">
           <div className="stat-icon"><i className="fas fa-users"></i></div>
@@ -78,9 +120,12 @@ export default function DashboardSection() {
         <div className="dashboard-card ai-insights">
           <h3>AI Insights</h3>
           <div className="insights-list">
-            <div className="insight-item"><i className="fas fa-lightbulb"></i><p>Promote "Midnight Dreams" on TikTok - trending up 340%</p></div>
-            <div className="insight-item"><i className="fas fa-crosshairs"></i><p>Optimal release time for Alex Chen: Tuesday 3PM EST</p></div>
-            <div className="insight-item"><i className="fas fa-chart-line"></i><p>Luna Nova fanbase surging in Berlin and Amsterdam</p></div>
+            {insights.map((ins, i) => (
+              <div className="insight-item" key={i}>
+                <i className={ins.icon}></i>
+                <p>{ins.text}</p>
+              </div>
+            ))}
           </div>
         </div>
       </div>

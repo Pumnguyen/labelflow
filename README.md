@@ -65,7 +65,22 @@ LabelFlow ships with **15 fully functional modules** out of the box:
 
 ![Analytics](docs/screenshots/analytics.png)
 
-> 📸 *To capture your own screenshots, run the app locally and visit `http://localhost:5173`*
+### Campaigns
+> Create, track, and measure marketing campaigns with live progress and budget breakdowns.
+
+![Campaigns](docs/screenshots/campaigns.png)
+
+### Asset Manager
+> Upload, filter, download, and delete audio, image, video & document files.
+
+![Assets](docs/screenshots/assets.png)
+
+### Merch Mockups
+> AI-generated product mockups — rotate angles, favourite and compare designs.
+
+![Merch Mockups](docs/screenshots/merch-mockups.png)
+
+> 📸 *Screenshots captured automatically using Puppeteer against the running dev server.*
 
 ---
 

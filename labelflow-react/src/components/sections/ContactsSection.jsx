@@ -39,8 +39,8 @@ export default function ContactsSection() {
               </div>
             </div>
             <div className="contact-actions">
-              <button className="btn-secondary btn-sm"><i className="fas fa-envelope"></i></button>
-              <button className="btn-secondary btn-sm"><i className="fas fa-phone"></i></button>
+              {c.email && <a href={`mailto:${c.email}`} className="btn-secondary btn-sm" title={c.email}><i className="fas fa-envelope"></i></a>}
+              {c.phone && <a href={`tel:${c.phone}`} className="btn-secondary btn-sm" title={c.phone}><i className="fas fa-phone"></i></a>}
             </div>
           </div>
         ))}
