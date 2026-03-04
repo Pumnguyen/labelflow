@@ -1,6 +1,9 @@
 /**
  * LabelFlow screenshot capture script
  * Run: node capture-screenshots.mjs  (from inside labelflow-react/)
+ *
+ * Nav items are plain <div class="nav-item"> with a <span> child — no data attrs.
+ * We click them by matching the span's trimmed text content.
  */
 import puppeteer from "puppeteer";
 import path from "path";
@@ -10,29 +13,31 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const OUT_DIR = path.join(__dirname, "../docs/screenshots");
 const BASE_URL = "http://localhost:5174";
 
+// navLabel must match exactly the <span> text inside the .nav-item div in Sidebar.jsx
 const SECTIONS = [
-  { id: "dashboard",       label: "Dashboard" },
-  { id: "artists",         label: "Artists" },
-  { id: "campaigns",       label: "Campaigns" },
-  { id: "assets",          label: "Asset Manager" },
-  { id: "todos",           label: "Todos" },
-  { id: "ai-blog-writer",  label: "AI Blog Writer" },
-  { id: "merch-mockups",   label: "Merch Mockups" },
-  { id: "spot-spotter",    label: "Spot Spotter" },
-  { id: "analytics",       label: "Analytics" },
+  { id: "dashboard",      navLabel: "Dashboard" },
+  { id: "artists",        navLabel: "Artists" },
+  { id: "campaigns",      navLabel: "Campaigns" },
+  { id: "assets",         navLabel: "Assets" },
+  { id: "todos",          navLabel: "To-Do" },
+  { id: "ai-blog-writer", navLabel: "AI Blog Writer" },
+  { id: "merch-mockups",  navLabel: "Merch Mockups" },
+  { id: "spot-spotter",   navLabel: "Street Marketing" },
+  { id: "analytics",      navLabel: "Analytics" },
 ];
 
-async function clickNavItem(page, sectionId) {
-  return page.evaluate((id) => {
-    const candidates = document.querySelectorAll(
-      ".nav-item, .sidebar-item, [data-section], nav li, nav a, li[class]"
-    );
-    for (const el of candidates) {
-      const ds = el.dataset.section || el.dataset.id || el.getAttribute("href");
-      if (ds === id || ds === `#${id}`) { el.click(); return true; }
+async function clickNavByLabel(page, label) {
+  return page.evaluate((targetLabel) => {
+    const navItems = document.querySelectorAll(".nav-item");
+    for (const item of navItems) {
+      const span = item.querySelector("span");
+      if (span && span.textContent.trim() === targetLabel) {
+        item.click();
+        return true;
+      }
     }
     return false;
-  }, sectionId);
+  }, label);
 }
 
 (async () => {
@@ -45,16 +50,18 @@ async function clickNavItem(page, sectionId) {
   await page.setViewport({ width: 1440, height: 900 });
 
   await page.goto(BASE_URL, { waitUntil: "networkidle2", timeout: 30000 });
-  await new Promise(r => setTimeout(r, 2500));
+  // Wait for React to hydrate
+  await new Promise(r => setTimeout(r, 3000));
 
   for (const section of SECTIONS) {
-    console.log(`  Capturing: ${section.label}…`);
-    const clicked = await clickNavItem(page, section.id);
+    console.log(`  Capturing: ${section.navLabel}…`);
+    const clicked = await clickNavByLabel(page, section.navLabel);
     if (!clicked) {
-      console.warn(`    ⚠ Nav not found for "${section.id}", reloading with hash`);
-      await page.goto(`${BASE_URL}#${section.id}`, { waitUntil: "networkidle0" });
+      console.error(`    ✗ Could not find nav item with label "${section.navLabel}"`);
+      continue;
     }
-    await new Promise(r => setTimeout(r, 1200));
+    // Wait for the section to render
+    await new Promise(r => setTimeout(r, 1500));
     const outPath = path.join(OUT_DIR, `${section.id}.png`);
     await page.screenshot({ path: outPath, fullPage: false });
     console.log(`    ✓ docs/screenshots/${section.id}.png`);
